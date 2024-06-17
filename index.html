@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MC NAWDS Tool</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Limit of Error Calculator</h2>
+
+      <div class="form-group">
+        <label for="dropdownClass">Select a class</label>
+        <select id="dropdownClass">
+          <option value="ii">Class II - High Accuracy</option>
+          <option value="iii" selected>Class III - Medium Accuracy</option>
+          <option value="iiihd">
+            Class IIIHD - Medium Accuracy (high capacity devices)
+          </option>
+          <option value="iiii">Class IIII - Ordinary Accuracy</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="dropdownUnit">Select a unit</label>
+        <select id="dropdownUnit">
+          <option value="g">g</option>
+          <option value="kg" selected>kg</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="maxInput">Max</label>
+          <input type="number" id="maxInput" step=".001" />
+        </div>
+        <div class="form-group">
+          <label for="eInput">e</label>
+          <input type="number" id="eInput" step=".001" />
+        </div>
+      </div>
+
+      <button class="btn">Submit</button>
+      <div id="table-container"></div>
+    </div>
+    <script src="main.js"></script>
+    <script src="validateScale.js"></script>
+    <script src="validateLoe.js"></script>
+  </body>
+</html>

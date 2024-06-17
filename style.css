@@ -1,0 +1,126 @@
+/* Resetting default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensuring box sizing includes padding and border */
+* {
+  box-sizing: border-box;
+}
+
+/* Setting base font size and line height */
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Applying default font family and background color */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Styling container */
+.container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+/* Centering heading */
+.container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Styling form rows */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Setting form group flex */
+.form-group {
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+/* Styling form group labels */
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Styling form inputs and selects */
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+/* Styling focused form inputs and selects */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Styling button */
+.btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Styling button hover state */
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Add scrolling to the container */
+#table-container {
+  overflow: auto;
+  max-width: 100%;
+}
+
+/* Ensure the table fits within the container */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  table-layout: fixed; /* Ensures cells are not stretched */
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #ccc;
+  padding: 0.2rem;
+  text-align: left;
+  word-wrap: break-word; /* Allows long words to be broken */
+}
+
+.data-table th {
+  background-color: #f0f2f5;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}

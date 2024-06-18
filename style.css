@@ -31,13 +31,18 @@ body {
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 400px;
 }
 
 /* Centering heading */
 .container h2 {
   text-align: center;
   margin-bottom: 1.5rem;
+}
+
+.container h4 {
+  text-align: left;
+  margin-top: 1rem;
 }
 
 /* Styling form rows */
@@ -104,7 +109,7 @@ body {
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem; */
   table-layout: fixed; /* Ensures cells are not stretched */
 }
 

@@ -16,17 +16,22 @@ function handleButtonClick() {
     eInput,
     intervals
   );
-
   const loe = validateLoe(dropdownUnit, dropdownClass, eInput, intervals);
-  //console.log(loe);
+  const tableContainer = document.getElementById("table-container");
+  tableContainer.innerHTML = ""; // Clear any existing table
+  const element = document.getElementById("nawds-container");
+  element.innerHTML = ``;
+  element.innerHTML += `<h4>NAWDS 3 (1)</h4>`;
 
   if (validationResult !== null) {
-    alert(validationResult);
+    element.innerHTML += `<p>${validationResult}</p>`;
   } else {
-    // Sample data array with four columns
-
-    const tableContainer = document.getElementById("table-container");
-    tableContainer.innerHTML = ""; // Clear any existing table
+    element.innerHTML += `<p>n = ${intervals}</p>`;
+    if (dropdownClass == "iiihd") {
+      element.innerHTML += `<h4>NAWDS 8 (3)</h4>`;
+    } else {
+      element.innerHTML += `<h4>NAWDS 8 (1)</h4>`;
+    }
 
     const table = document.createElement("table");
     table.classList.add("data-table");

@@ -59,14 +59,14 @@ function validateLoe(scaleUnit, scaleClass, e, n) {
   }
   if (scaleClass == `iiihd`) {
     for (let c = 1; c <= 22; c++) {
-      console.log`${((c - 2) * 800 + 500 + 1) * e}`;
+      console.log(`${(c - 2) * 800 * e + 501 * e}`);
 
       if (c === 1) {
         loe[c] = `0 - ${500 * e} ${scaleUnit}`;
         loe[c] += ` /  ± 1e (± ${e} ${scaleUnit})`;
       } else {
-        if ((c - 2) * (800 + 500 + 1) * e <= n * e) {
-          loe[c] = `${(c - 2) * 800 + 501 * e} ${scaleUnit} - ${
+        if ((c - 2) * 800 * e + 501 * e <= n * e) {
+          loe[c] = `${(c - 2) * 800 * e + 501 * e} ${scaleUnit} - ${
             ((c - 1) * 800 + 500) * e
           } ${scaleUnit}`;
           loe[c] += ` /  ± ${c}e (± ${e * c} ${scaleUnit})`;

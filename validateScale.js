@@ -1,11 +1,7 @@
 function validateScale(scaleUnit, scaleClass, e, n) {
   let grams = 0.0;
-  if (scaleUnit == "kg") {
-    grams = e * 1000;
-  } else {
-    grams = e;
-  }
-  console.log(scaleUnit, scaleClass, e, n, grams);
+  scaleUnit == "kg" ? (grams = e * 1000) : (grams = e);
+
   // Class II
   if (scaleClass == "ii") {
     if (grams >= 0.001 && grams <= 0.05) {
@@ -43,6 +39,7 @@ function validateScale(scaleUnit, scaleClass, e, n) {
     } else {
       return `Invalid e = ${e} ${scaleUnit}`;
     }
+
     // Class IIII
   } else if (scaleClass == "iiii") {
     if (grams >= 5000) {
@@ -53,5 +50,6 @@ function validateScale(scaleUnit, scaleClass, e, n) {
       return `Invalid e = ${e} ${scaleUnit}`;
     }
   }
+
   return null;
 }

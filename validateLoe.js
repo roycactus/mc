@@ -1,5 +1,4 @@
 function validateLoe(scaleUnit, scaleClass, e, n) {
-  // loe in e, loe e range, loe in unit, loe unit range
   let loe = [];
   loe[0] = [];
   loe[0] = `Range / In Service LOE`;
@@ -7,7 +6,6 @@ function validateLoe(scaleUnit, scaleClass, e, n) {
     loe[1] = [];
     loe[1] = `0 ${scaleUnit} - ${e * 5000} ${scaleUnit}`;
     loe[1] += ` /  ± 1e (± ${e * 1} ${scaleUnit})`;
-
     if (n > 5000) {
       loe[2] = [];
       loe[2] = `${e * 5001} ${scaleUnit} - ${e * 20000} ${scaleUnit}`;
@@ -23,7 +21,6 @@ function validateLoe(scaleUnit, scaleClass, e, n) {
     loe[1] = [];
     loe[1] = `0 ${scaleUnit} - ${e * 500} ${scaleUnit}`;
     loe[1] += ` /  ± 1e (± ${e * 1} ${scaleUnit})`;
-
     if (n > 500) {
       loe[2] = [];
       loe[2] = `${e * 501} ${scaleUnit} - ${e * 2000} ${scaleUnit}`;
@@ -44,7 +41,6 @@ function validateLoe(scaleUnit, scaleClass, e, n) {
     loe[1] = [];
     loe[1] = `0 ${scaleUnit} - ${e * 50} ${scaleUnit}`;
     loe[1] += ` /  ± 1e (± ${e * 1} ${scaleUnit})`;
-
     if (n > 50) {
       loe[2] = [];
       loe[2] = `${e * 51} ${scaleUnit} - ${e * 200} ${scaleUnit}`;
@@ -61,17 +57,20 @@ function validateLoe(scaleUnit, scaleClass, e, n) {
       loe[4] += ` /  ± 5e (± ${e * 5} ${scaleUnit})`;
     }
   }
-
   if (scaleClass == `iiihd`) {
     for (let c = 1; c <= 22; c++) {
+      console.log`${((c - 2) * 800 + 500 + 1) * e}`;
+
       if (c === 1) {
-        loe[c] = `0 ${scaleUnit} - 500${scaleUnit}`;
+        loe[c] = `0 - ${500 * e} ${scaleUnit}`;
         loe[c] += ` /  ± 1e (± ${e} ${scaleUnit})`;
       } else {
-        loe[c] = `${(c - 2) * 800 + 500 + e} ${scaleUnit} - ${
-          (c - 1) * 800 + 500
-        } ${scaleUnit}`;
-        loe[c] += ` /  ± ${c}e (± ${e * c} ${scaleUnit})`;
+        if ((c - 2) * (800 + 500 + 1) * e <= n * e) {
+          loe[c] = `${(c - 2) * 800 + 501 * e} ${scaleUnit} - ${
+            ((c - 1) * 800 + 500) * e
+          } ${scaleUnit}`;
+          loe[c] += ` /  ± ${c}e (± ${e * c} ${scaleUnit})`;
+        }
       }
     }
   }

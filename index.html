@@ -30,6 +30,25 @@
         </select>
       </div>
 
+      <div class="form-group">
+        <label for="dropdownApplication">Select an application</label>
+        <select id="dropdownApplication">
+          <option value="1a">Precious metals or comparable retail</option>
+          <option value="1b">Precious metals or comparable wholesale</option>
+          <option value="2">Diamonds and gemstones</option>
+          <option value="3">Shipping charges, scale max <= 4000 kg</option>
+          <option value="4">Material for road construction</option>
+          <option value="5">Waste material other than scrapmetal</option>
+          <option value="6">Scrap metal (ferrous)</option>
+          <option value="7">Scrap metal (non-ferrous)</option>
+          <option value="8">Grain, scale max >= 4000 kg</option>
+          <option value="9">
+            Other bulk commodities, scale max >= 4000 kg
+          </option>
+          <option value="10" selected>Any other application</option>
+        </select>
+      </div>
+
       <div class="form-row">
         <div class="form-group">
           <label for="maxInput">Max</label>
@@ -42,10 +61,11 @@
       </div>
       <button class="btn">Submit</button>
       <div id="nawds-container"></div>
-      <div id="table-container"></div>
+      <!-- <div id="table-container"></div> -->
     </div>
     <script src="main.js"></script>
     <script src="validateScale.js"></script>
     <script src="validateLoe.js"></script>
+    <script src="validateUse.js"></script>
   </body>
 </html>

@@ -12,33 +12,33 @@ function handleButtonClick() {
   const suitability = validateUse(unit, scaleClass, e, application);
   const loe = validateLoe(unit, scaleClass, e, intervals);
 
-  const element = document.getElementById("nawds-container");
-  element.innerHTML = ``;
+  const el = document.getElementById("nawds-container");
+  el.innerHTML = ``;
 
   // NAWDS 3 check if valid classification
 
-  element.innerHTML += `<h4>NAWDS 3 (1) - Classification</h4>`;
+  elAdd(el, `<h4>NAWDS 3 (1) - Classification</p>`);
   if (classification !== null) {
-    element.innerHTML += `<p>${classification}</p>`;
+    elAdd(el, `<p>${classification}</p>`);
     return;
   }
-  element.innerHTML += `<p>n = ${intervals}</p>`;
+  elAdd(el, `<p>n = ${intervals}</p>`);
 
   //NAWDS 62 - Suitability
-  element.innerHTML += `<h4>NAWDS 62 (1) - Suitability</h4>`;
+  elAdd(el, `<h4>NAWDS 62 (1) - Suitability</p>`);
   if (suitability[0] == 0) {
-    element.innerHTML += `<p>${suitability[1]}</p>`;
+    elAdd(el, `<p>${suitability[1]}</p>`);
     return;
   }
-  element.innerHTML += `<p>${suitability[1]}</p>`;
+  elAdd(el, `<p>${suitability[1]}</p>`);
 
   // NAWDS 8 Table
   if (scaleClass == "iiihd") {
-    element.innerHTML += `<h4>NAWDS 8 (3) - Performance</h4>`;
+    elAdd(el, `<h4>NAWDS 8 (3) - Performance</p>`);
   } else {
-    element.innerHTML += `<h4>NAWDS 8 (1) - Performance</h4>`;
+    elAdd(el, `<h4>NAWDS 8 (1) - Performance</p>`);
   }
-  element.innerHTML += `<div id="table-container"></div>`;
+  elAdd(el, `<div id="table-container"></div>`);
   const tableContainer = document.getElementById("table-container");
   const table = document.createElement("table");
   table.classList.add("data-table");
@@ -52,13 +52,23 @@ function handleButtonClick() {
   tableContainer.appendChild(table);
 
   // NAWDS Design
-  element.innerHTML += `<h4>NAWDS 40-44 - Zero Mechanisms</h4>`;
-  element.innerHTML += `<p>AZSM: ${-5 * e} ${unit} (-5e)</p>`;
-  element.innerHTML += `<p>AZTM: test load + ${
-    0.7 * e
-  } ${unit} (test load + 0.7e)</p>`;
-  element.innerHTML += `<p>IZSM: ${maxInput * 0.2} ${unit} (20% Max)</p>`;
-  element.innerHTML += `<p>SAZSM ${maxInput * 0.04} ${unit} (4% Max)</p>`;
+  elAdd(el, `<h4>NAWDS 40-44 - Zero Mechanisms</p>`);
+  elAdd(el, `<p>AZSM: ${-5 * e} ${unit} (-5e)</p>`);
+  elAdd(el, `<p>AZTM: ~10e + ${0.7 * e} ${unit} (~10e + 0.7e)</p>`);
+  elAdd(el, `<p>IZSM: ${maxInput * 0.2} ${unit} (20% Max)</p>`);
+  elAdd(el, `<p>SAZSM ${maxInput * 0.04} ${unit} (4% Max)</p>`);
+
+  elAdd(el, `<h4>NAWDS 11-13 - Performance</p>`);
+  elAdd(el, `<p>Eccentricity: ~1/3 Max = ${maxInput / 3} ${unit}</p>`);
+  elAdd(el, `<p>Repeatability: ~1/2 Max = ${maxInput / 2} ${unit}</p>`);
+
+  elAdd(el, `<h4>NAWDS 39 - Performance</p>`);
+  elAdd(el, `<p>Calculating Blank: 9e = ${9.0 * e} ${unit}</p>`);
+  elAdd(el, `<p>Other Blank: 5% Max = ${maxInput * 0.05} ${unit}</p>`);
+}
+
+function elAdd(el, newText) {
+  return (el.innerHTML += newText);
 }
 
 button.addEventListener("click", handleButtonClick);
